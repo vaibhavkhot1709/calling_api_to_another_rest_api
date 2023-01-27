@@ -1,6 +1,7 @@
 package com.rest_api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,13 @@ public class CallStudentController {
 	public String postStudent(@RequestBody Student student){
 		return service.postStudent(student);
 	}
+	
+	
+	@DeleteMapping("/student/{roll}")
+	public String deleteStudentByRoll(@PathVariable("roll") int roll){
+		return service.deleteStudentByRoll(roll);
+	}
+	
 	
 	
 }

@@ -1,6 +1,5 @@
 package com.rest_api.service;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.Arrays;
 
 import org.springframework.http.HttpEntity;
@@ -37,6 +36,18 @@ public class StudentService {
 	    
 		
 		return restTemplate.exchange(uri, HttpMethod.POST, entity, String.class).getBody();
+	}
+
+	
+	public String deleteStudentByRoll(int roll) {
+
+		RestTemplate restTemplate=new RestTemplate();
+		
+		HttpHeaders headers=new HttpHeaders();
+		
+		HttpEntity<Student> entity=new HttpEntity(headers);
+		
+		return restTemplate.exchange(uri+roll, HttpMethod.DELETE, entity, String.class).getBody();
 	}
 
 }
