@@ -1,5 +1,6 @@
 package com.rest_api.service;
 
+import java.awt.List;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -20,12 +21,15 @@ public class StudentService {
 //	RestTemplate restTemplate;
 	@Value("${baseUrl}")
 	String uri;
+	
 	RestTemplate restTemplate=new RestTemplate();
 
 	public Student getStudentByRoll(int roll) {
 
 		ResponseEntity<Student> entity = restTemplate.getForEntity(uri + roll, Student.class);
-
+		
+//	List l=restTemplate.getForObject(uri+roll, List.class);
+	
 		return entity.getBody();
 	}
 
